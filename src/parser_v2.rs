@@ -202,7 +202,9 @@ fn parse_tags(string: &String) -> Box<HashSet<String>> {
         let collect: HashSet<&str> = raw.split(",").map(|x| x.trim()).collect();
 
         for tag in collect {
-            tags.insert(tag.to_string());
+            if !tag.is_empty() {
+                tags.insert(tag.to_string());
+            }
         }
     } else if string.starts_with("#") {
         let tag = string.replace("#", "").trim().to_string();
