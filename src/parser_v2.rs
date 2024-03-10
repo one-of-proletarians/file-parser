@@ -101,8 +101,6 @@ pub fn parse(path_to_file: &Path) -> Result<Box<Response>, ()> {
             Err(_) => "".to_string(),
         };
 
-        println!("{}", string);
-
         if skip_line_else(&string) {
             continue;
         }
