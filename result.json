@@ -1,0 +1,348 @@
+{
+  "languages": {
+    "original": "ru",
+    "translate": "de"
+  },
+  "fields": [
+    {
+      "tags": [],
+      "content": [
+        {
+          "original": "one tags 1",
+          "translate": ""
+        }
+      ]
+    },
+    {
+      "tags": [
+        "qq",
+        "days"
+      ],
+      "content": [
+        {
+          "original": "grüßen",
+          "translate": "здороваться"
+        },
+        {
+          "original": "gucken",
+          "translate": "смотреть"
+        }
+      ]
+    },
+    {
+      "tags": [
+        "Nomen"
+      ],
+      "content": [
+        {
+          "original": "der Abstellraum",
+          "translate": "кладовая"
+        },
+        {
+          "original": "der Bart",
+          "translate": "борода"
+        },
+        {
+          "original": "der Briefkasten",
+          "translate": "почтовый ящик"
+        },
+        {
+          "original": "die Couch",
+          "translate": "диван"
+        },
+        {
+          "original": "das Dach",
+          "translate": "крыша"
+        },
+        {
+          "original": "die Einrichtung",
+          "translate": "обстановка, мебель"
+        },
+        {
+          "original": "die Hausordnung",
+          "translate": "правила дома"
+        },
+        {
+          "original": "die Gaststätte",
+          "translate": "ресторан, кафе"
+        },
+        {
+          "original": "die Innenstadt",
+          "translate": "центр города@"
+        },
+        {
+          "original": "die Miete",
+          "translate": "арендная плата"
+        },
+        {
+          "original": "die Mülltonne",
+          "translate": "мусорный бак"
+        },
+        {
+          "original": "die Nähe",
+          "translate": "близость"
+        },
+        {
+          "original": "die Neuigkeit",
+          "translate": "новость"
+        },
+        {
+          "original": "der Rasen",
+          "translate": "газон"
+        },
+        {
+          "original": "das Recht",
+          "translate": "право"
+        },
+        {
+          "original": "die Reinigung",
+          "translate": "уборка"
+        },
+        {
+          "original": "die Rente",
+          "translate": "пенсия"
+        },
+        {
+          "original": "der Schmutz",
+          "translate": "грязь"
+        },
+        {
+          "original": "die Sicherheit",
+          "translate": "безопасность"
+        },
+        {
+          "original": "der Staub",
+          "translate": "пыль"
+        },
+        {
+          "original": "die Störung",
+          "translate": "нарушение, помеха"
+        },
+        {
+          "original": "das Treppenhaus",
+          "translate": "лестничная клетка"
+        },
+        {
+          "original": "die Vorschrift",
+          "translate": "предписание, правило"
+        },
+        {
+          "original": "die Wirtschaft",
+          "translate": "экономика, хозяйство"
+        }
+      ]
+    },
+    {
+      "tags": [
+        "hello world",
+        "Nomen",
+        "Verben"
+      ],
+      "content": [
+        {
+          "original": "abschließen",
+          "translate": "закрывать, заключать"
+        },
+        {
+          "original": "annehmen",
+          "translate": "принимать, предполагать"
+        },
+        {
+          "original": "beruhigen",
+          "translate": "успокаивать"
+        },
+        {
+          "original": "beschweren",
+          "translate": "жаловаться, обременять"
+        },
+        {
+          "original": "einziehen",
+          "translate": "вселяться, въезжать"
+        },
+        {
+          "original": "entsorgen",
+          "translate": "утилизировать, выбрасывать"
+        },
+        {
+          "original": "füttern",
+          "translate": "кормить"
+        },
+        {
+          "original": "gießen",
+          "translate": "поливать"
+        },
+        {
+          "original": "klingeln",
+          "translate": "звонить"
+        },
+        {
+          "original": "lassen",
+          "translate": "оставлять, разрешать"
+        },
+        {
+          "original": "leihen",
+          "translate": "одалживать"
+        },
+        {
+          "original": "pflegen",
+          "translate": "ухаживать, заботиться"
+        },
+        {
+          "original": "reinigen",
+          "translate": "чистить, убирать"
+        },
+        {
+          "original": "sinken,steigen",
+          "translate": "опускаться,подниматься"
+        },
+        {
+          "original": "trennen",
+          "translate": "разделять, отделять"
+        },
+        {
+          "original": "vermeiden",
+          "translate": "избегать"
+        }
+      ]
+    },
+    {
+      "tags": [
+        "hello world",
+        "Nomen",
+        "Adjektive"
+      ],
+      "content": [
+        {
+          "original": "anwesend",
+          "translate": "присутствующий"
+        },
+        {
+          "original": "ärgerlich",
+          "translate": "раздражающий, злой"
+        },
+        {
+          "original": "ernst",
+          "translate": "серьезный"
+        },
+        {
+          "original": "faul",
+          "translate": "ленивый"
+        },
+        {
+          "original": "notwendig",
+          "translate": "необходимый"
+        },
+        {
+          "original": "ständig",
+          "translate": "постоянный"
+        }
+      ]
+    },
+    {
+      "tags": [
+        "guten",
+        "hello",
+        "world",
+        "day",
+        "hello world",
+        "today",
+        "Nomen",
+        "abbend"
+      ],
+      "content": [
+        {
+          "original": "one tags 2",
+          "translate": ""
+        },
+        {
+          "original": "one tags 2",
+          "translate": ""
+        }
+      ]
+    },
+    {
+      "tags": [
+        "guten",
+        "hello",
+        "world",
+        "hello world",
+        "Nomen",
+        "abbend"
+      ],
+      "content": [
+        {
+          "original": "one tags 2",
+          "translate": ""
+        },
+        {
+          "original": "Nomen3",
+          "translate": ""
+        }
+      ]
+    },
+    {
+      "tags": [
+        "guten",
+        "Andere Wörter",
+        "hello",
+        "world",
+        "hello world",
+        "Nomen",
+        "abbend"
+      ],
+      "content": [
+        {
+          "original": "ebenfalls -- также",
+          "translate": ""
+        },
+        {
+          "original": "einerseits, andererseits -- с одной стороны, с другой стороны",
+          "translate": ""
+        },
+        {
+          "original": "erstens, zweitens, drittens -- во-первых, во-вторых, в-третьих",
+          "translate": ""
+        },
+        {
+          "original": "im Freien -- на свежем воздухе",
+          "translate": ""
+        },
+        {
+          "original": "mittlerweile -- тем временем",
+          "translate": ""
+        },
+        {
+          "original": "sowohl, als auch -- как..., так и...",
+          "translate": ""
+        },
+        {
+          "original": "weshalb -- почему",
+          "translate": ""
+        },
+        {
+          "original": "zumindest -- по крайней мере",
+          "translate": ""
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "line": 24,
+      "columns": [
+        3,
+        13,
+        16,
+        24
+      ],
+      "string": "der| Lärm ==>==< шум>"
+    },
+    {
+      "line": 33,
+      "columns": [
+        48
+      ],
+      "string": "die Rücksicht ==== внимание, Rücksicht|"
+    }
+  ]
+}
