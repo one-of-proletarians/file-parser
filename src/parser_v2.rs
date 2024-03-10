@@ -4,7 +4,7 @@ use serde::Serialize;
 use std::{
     collections::HashSet,
     fs::File,
-    io::{BufRead, BufReader, Seek, SeekFrom},
+    io::{BufRead, BufReader},
     path::Path,
 };
 
@@ -218,20 +218,14 @@ fn parse_tags(string: &String) -> Box<HashSet<String>> {
 /// В противном случае будет использован разделитель, заданный в настройках по умолчанию.
 ///
 fn get_separator(reader: &mut BufReader<&File>) -> String {
-    let mut separator = dotenv!("DEFAULT_SEPARATOR").to_string();
-
     for line in reader.lines() {
         let string = line.unwrap().trim().to_string();
 
         if string.starts_with("@sep ") {
-            separator = string.replace("@sep ", "").trim().to_string();
-            break;
+            return string.replace("@sep ", "").trim().to_string();
         } else if !string.is_empty() {
             break;
         }
     }
-
-    reader.seek(SeekFrom::Start(0)).unwrap();
-
-    return separator;
+    return dotenv!("DEFAULT_SEPARATOR").to_string();
 }
