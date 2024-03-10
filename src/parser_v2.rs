@@ -181,12 +181,14 @@ fn update_response(response: &mut Response, content: &mut Vec<Text>, tags: &mut 
     }
 }
 
+/// Вычитает из набора тэгов набор тэгов, которые должны быть вычеркнуты
 fn substract_tags(target_tags: &mut HashSet<String>, tags_to_substract: &Box<HashSet<String>>) {
     for tag in tags_to_substract.iter() {
         target_tags.remove(tag);
     }
 }
 
+/// Добавляет в набор тэгов набор тэгов, которые должны быть добавлены
 fn extend_tags(target_tags: &mut HashSet<String>, additional_tags: &Box<HashSet<String>>) {
     for tag in additional_tags.iter() {
         target_tags.insert(tag.clone());
