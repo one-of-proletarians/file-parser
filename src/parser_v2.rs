@@ -220,11 +220,13 @@ fn parse_tags(string: &String) -> Box<HashSet<String>> {
 /// В противном случае будет использован разделитель, заданный в настройках по умолчанию.
 ///
 fn get_separator(reader: &mut BufReader<&File>) -> String {
+    const DERECTIVE: &str = "@sep ";
+
     for line in reader.lines() {
         let string = line.unwrap().trim().to_string();
 
-        if string.starts_with("@sep ") {
-            return string.replace("@sep ", "").trim().to_string();
+        if string.starts_with(DERECTIVE) {
+            return string.replace(DERECTIVE, "").trim().to_string();
         } else if !string.is_empty() && !string.starts_with("//") {
             reader.seek(SeekFrom::Start(0)).unwrap();
             break;
