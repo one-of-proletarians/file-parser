@@ -5,5 +5,6 @@ version = "0.1.0"
 
 [dependencies]
 dotenv_codegen = "0.15.0"
-serde = {version = "1.0", features = ["derive"]}
+regex = "1.10.3"
+serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0.114"

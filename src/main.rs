@@ -1,16 +1,22 @@
 #[macro_use]
 extern crate dotenv_codegen;
 
-mod parser;
-use parser::{parse, to_json};
+mod parser_v2;
+use parser_v2::parse;
 
 use std::{fs::OpenOptions, io::Write, path::Path};
 
 fn main() {
-    let file_path = Path::new("B1-K1.txt");
+    let path = Path::new("B1-K1.txt");
     let result_path = Path::new("result.json");
 
-    let fields = parse(file_path, "DE", "RU");
+    let fields = match parse(path) {
+        Ok(x) => x,
+        Err(_) => {
+            println!("ошибка открытия файла");
+            return;
+        }
+    };
 
     OpenOptions::new()
         .write(true)
@@ -18,6 +24,6 @@ fn main() {
         .truncate(true)
         .open(result_path)
         .expect("Error opening")
-        .write(to_json(&fields).as_bytes())
+        .write(serde_json::to_string_pretty(&fields).unwrap().as_bytes())
         .unwrap();
 }
