@@ -4,7 +4,7 @@ use serde::Serialize;
 use std::{
     collections::HashSet,
     fs::File,
-    io::{BufRead, BufReader},
+    io::{BufRead, BufReader, Seek, SeekFrom},
     path::Path,
 };
 
@@ -100,6 +100,8 @@ pub fn parse(path_to_file: &Path) -> Result<Box<Response>, ()> {
             Ok(x) => x.trim().to_string(),
             Err(_) => "".to_string(),
         };
+
+        println!("{}", string);
 
         if skip_line_else(&string) {
             continue;
@@ -223,9 +225,11 @@ fn get_separator(reader: &mut BufReader<&File>) -> String {
 
         if string.starts_with("@sep ") {
             return string.replace("@sep ", "").trim().to_string();
-        } else if !string.is_empty() {
+        } else if !string.is_empty() && !string.starts_with("//") {
+            reader.seek(SeekFrom::Start(0)).unwrap();
             break;
         }
     }
+
     return dotenv!("DEFAULT_SEPARATOR").to_string();
 }
