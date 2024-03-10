@@ -4,7 +4,7 @@ use serde::Serialize;
 use std::{
     collections::HashSet,
     fs::File,
-    io::{BufRead, BufReader},
+    io::{BufRead, BufReader, Seek, SeekFrom},
     path::Path,
 };
 
@@ -71,7 +71,7 @@ pub fn parse(path_to_file: &Path) -> Result<Box<Response>, ()> {
         Err(_) => return Err(()),
     };
 
-    let reader = BufReader::new(&file);
+    let mut reader = BufReader::new(&file);
 
     let mut response = Response {
         fields: Default::default(),
@@ -84,7 +84,7 @@ pub fn parse(path_to_file: &Path) -> Result<Box<Response>, ()> {
 
     let mut content: Vec<Text> = Default::default();
     let mut tags: HashSet<String> = Default::default();
-    let mut sep = String::from(dotenv!("DEFAULT_SEPARATOR"));
+    let sep = get_separator(&mut reader);
 
     let mut string: String;
     let mut num_line: i32 = 0;
@@ -101,12 +101,7 @@ pub fn parse(path_to_file: &Path) -> Result<Box<Response>, ()> {
             Err(_) => "".to_string(),
         };
 
-        if is_empty_or_comments(&string) {
-            continue;
-        }
-
-        if string.starts_with("@sep ") {
-            sep = string[5..].to_string();
+        if skip_line_else(&string) {
             continue;
         }
 
@@ -156,8 +151,9 @@ pub fn parse(path_to_file: &Path) -> Result<Box<Response>, ()> {
 
 /// Определяет, пустая ли строка или начинается ли она с комментария
 /// (строка начинается с "//").
-fn is_empty_or_comments(string: &String) -> bool {
-    string.is_empty() || string.starts_with("//")
+fn skip_line_else(string: &String) -> bool {
+    let reg = Regex::new(r"^//|@sep").unwrap();
+    return reg.is_match(string) || string.is_empty();
 }
 
 /// Описывает функцию, которая добавляет в объект-ответ новый элемент [`Field`], если в нём нет такого же набора тэгов.
@@ -214,4 +210,21 @@ fn parse_tags(string: &String) -> Box<HashSet<String>> {
     }
 
     return Box::new(tags);
+}
+
+fn get_separator(reader: &mut BufReader<&File>) -> String {
+    let mut separator = dotenv!("DEFAULT_SEPARATOR").to_string();
+
+    for line in reader.lines() {
+        let string = line.unwrap().trim().to_string();
+
+        if string.starts_with("@sep ") {
+            separator = string.replace("@sep ", "").trim().to_string();
+            break;
+        }
+    }
+
+    reader.seek(SeekFrom::Start(0)).unwrap();
+
+    return separator;
 }
