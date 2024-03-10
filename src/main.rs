@@ -10,7 +10,7 @@ fn main() {
     let path = Path::new("B1-K1.txt");
     let result_path = Path::new("result.json");
 
-    let fields = match parse(path) {
+    let fields = match parse(path, "DE", "RU") {
         Ok(x) => x,
         Err(_) => {
             println!("ошибка открытия файла");

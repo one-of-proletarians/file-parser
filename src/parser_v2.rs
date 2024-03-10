@@ -61,11 +61,17 @@ struct ErrorLine {
 
 /// Описывает функцию, которая парсит файл и создает объект-ответ.
 ///
-/// Параметр `path_to_file: &`[`Path`] - путь до файла, который нужно парсить.
+/// * `path_to_file: &`[`Path`] - путь до файла, который нужно парсить.
+/// * `original_lang: &`[`str`] - идентификатор языка оригинала.
+/// * `translate_lang: &`[`str`] - идентификатор языка перевода.
 ///
 /// Функция возвращает `Result<Box<Response>, ()>`, где [`Ok`] - успешно
 /// пропарсенный объект-ответ, а [`Err`] - ошибка при чтении или парсинге файла.
-pub fn parse(path_to_file: &Path) -> Result<Box<Response>, ()> {
+pub fn parse(
+    path_to_file: &Path,
+    original_lang: &str,
+    translate_lang: &str,
+) -> Result<Box<Response>, ()> {
     let file = match File::open(path_to_file) {
         Ok(file) => file,
         Err(_) => return Err(()),
@@ -77,17 +83,18 @@ pub fn parse(path_to_file: &Path) -> Result<Box<Response>, ()> {
         fields: Default::default(),
         errors: Default::default(),
         languages: Languages {
-            original: "ru".to_string(),
-            translate: "de".to_string(),
+            original: original_lang.to_string(),
+            translate: translate_lang.to_string(),
         },
     };
 
     let mut content: Vec<Text> = Default::default();
     let mut tags: HashSet<String> = Default::default();
-    let sep = get_separator(&mut reader);
 
     let mut string: String;
     let mut num_line: i32 = 0;
+
+    let sep = get_separator(&mut reader);
 
     let tags_reg = Regex::new(r"(^#{1,2}\w+)|(^@{1,2}tags)").unwrap();
     let error_reg = Regex::new("[<>:\"/\\|*]+").unwrap();
