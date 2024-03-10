@@ -212,6 +212,11 @@ fn parse_tags(string: &String) -> Box<HashSet<String>> {
     return Box::new(tags);
 }
 
+/// Определяет разделитель, который будет использоваться при парсинге файла.
+///
+/// Если в начале файла есть строка `"@sep <разделитель>"`, то будет использован указанный разделитель.
+/// В противном случае будет использован разделитель, заданный в настройках по умолчанию.
+///
 fn get_separator(reader: &mut BufReader<&File>) -> String {
     let mut separator = dotenv!("DEFAULT_SEPARATOR").to_string();
 
@@ -220,6 +225,8 @@ fn get_separator(reader: &mut BufReader<&File>) -> String {
 
         if string.starts_with("@sep ") {
             separator = string.replace("@sep ", "").trim().to_string();
+            break;
+        } else if !string.is_empty() {
             break;
         }
     }
