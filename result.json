@@ -134,9 +134,9 @@
     },
     {
       "tags": [
-        "Nomen",
         "hello world",
-        "Verben"
+        "Verben",
+        "Nomen"
       ],
       "content": [
         {
@@ -207,9 +207,9 @@
     },
     {
       "tags": [
+        "hello world",
         "Adjektive",
-        "Nomen",
-        "hello world"
+        "Nomen"
       ],
       "content": [
         {
@@ -240,14 +240,14 @@
     },
     {
       "tags": [
-        "world",
-        "guten",
-        "Nomen",
-        "today",
+        "hello",
         "abbend",
-        "day",
+        "Nomen",
+        "world",
         "hello world",
-        "hello"
+        "day",
+        "guten",
+        "today"
       ],
       "content": [
         {
@@ -262,12 +262,12 @@
     },
     {
       "tags": [
-        "world",
-        "guten",
-        "Nomen",
+        "hello",
         "abbend",
+        "Nomen",
+        "world",
         "hello world",
-        "hello"
+        "guten"
       ],
       "content": [
         {
@@ -282,13 +282,13 @@
     },
     {
       "tags": [
-        "world",
+        "hello",
         "Andere Wörter",
-        "guten",
-        "Nomen",
         "abbend",
+        "Nomen",
+        "world",
         "hello world",
-        "hello"
+        "guten"
       ],
       "content": [
         {
@@ -328,7 +328,7 @@
   ],
   "errors": [
     {
-      "line": 21,
+      "line": 24,
       "columns": [
         3,
         13,
@@ -338,7 +338,7 @@
       "string": "der| Lärm ==>==< шум>"
     },
     {
-      "line": 30,
+      "line": 33,
       "columns": [
         48
       ],

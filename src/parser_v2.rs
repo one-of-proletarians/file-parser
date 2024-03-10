@@ -132,9 +132,9 @@ pub fn parse(path_to_file: &Path) -> Result<Box<Response>, ()> {
             update_response(&mut response, &mut content, &mut tags);
 
             if remove_tags_reg.is_match(&string) {
-                substract_tags(&mut tags, parsed_tags);
+                substract_tags(&mut tags, &parsed_tags);
             } else {
-                extend_tags(&mut tags, parsed_tags);
+                extend_tags(&mut tags, &parsed_tags);
             }
         } else {
             let (original, translate) = match string.split_once(sep.as_str()) {
@@ -181,13 +181,13 @@ fn update_response(response: &mut Response, content: &mut Vec<Text>, tags: &mut 
     }
 }
 
-fn substract_tags(target_tags: &mut HashSet<String>, tags_to_substract: Box<HashSet<String>>) {
+fn substract_tags(target_tags: &mut HashSet<String>, tags_to_substract: &Box<HashSet<String>>) {
     for tag in tags_to_substract.iter() {
         target_tags.remove(tag);
     }
 }
 
-fn extend_tags(target_tags: &mut HashSet<String>, additional_tags: Box<HashSet<String>>) {
+fn extend_tags(target_tags: &mut HashSet<String>, additional_tags: &Box<HashSet<String>>) {
     for tag in additional_tags.iter() {
         target_tags.insert(tag.clone());
     }
